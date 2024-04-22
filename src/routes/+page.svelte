@@ -1,59 +1,59 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+    import Counter from './Counter.svelte';
+    import welcome from '$lib/images/svelte-welcome.webp';
+    import welcome_fallback from '$lib/images/svelte-welcome.png';
+
+    let interests = ['Robotics', 'Programming', 'Design'];
+    let images = ['src/lib/images/LynxKasselRobot/IMG_6507.jpg', 'src/lib/images/PhotoTastatur.jpg', 'src/lib/images/RandomDesign.jpeg']
+    let links = ["https://www.lynx-robotics.org", "", ""];
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+    <title>Home</title>
+    <meta name="description" content="Me Now"/>
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+    <h1>
+        Me Now
+    </h1>
 </section>
 
+{#each interests as interest, i }
+    <a href="{links[i]}">
+        <section class="card" style="background-image: url({images[i]});">
+            <h2 >{interest}</h2>
+        </section>
+    </a>
+{/each}
+
+
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
+    section {
+        display: compact;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    h1 {
+        width: 100%;
+    }
+
+	h2 {
+		font-weight: bold;
+		font-size: 1.5em;
 	}
 
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+    .card {
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        color: var(--dim-base-100);
+        background: var(--dim-base-content);
+        opacity: 0.6;
+		background-size: auto;
+		background-position: center;
+		background-blend-mode: soft-light;
+    }
 </style>

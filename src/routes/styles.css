@@ -4,6 +4,7 @@
 	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-mono: 'Fira Mono', monospace;
+	--font-code: 'Fira Code', monospace;
 	--color-bg-0: rgb(202, 216, 228);
 	--color-bg-1: hsl(209, 36%, 86%);
 	--color-bg-2: hsl(224, 44%, 95%);
@@ -12,22 +13,33 @@
 	--color-text: rgba(0, 0, 0, 0.7);
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
+
+	--dim-primary: #9FE88D;
+	--dim-secondary: #FF7D5C;
+	--dim-accent: #C792E9;
+	--dim-neutral: #1c212b;
+	--dim-neutral-content: #B2CCD6;
+	--dim-base-100: #2A303C;
+	--dim-base-200: #242933;
+	--dim-base-300: #20252E;
+	--dim-base-content: #B2CCD6;
+	--dim-info: #28ebff;
+	--dim-success: #62efbd;
+	--dim-warning: #efd057;
+	--dim-error: #ffae9b;
+
 	font-family: var(--font-body);
 	color: var(--color-text);
 }
 
 body {
-	min-height: 100vh;
 	margin: 0;
-	background-attachment: fixed;
-	background-color: var(--color-bg-1);
-	background-size: 100vw 100vh;
-	background-image: radial-gradient(
-			50% 50% at 50% 50%,
-			rgba(255, 255, 255, 0.75) 0%,
-			rgba(255, 255, 255, 0) 100%
-		),
-		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
+	background-attachment: scroll;
+	background-position: center;
+	background-size: cover;
+	background-image: url('src/lib/images/Greece Photo May 29.jpg');
+	background-color: rgba(0, 0, 0, 0.9);
+	background-blend-mode: darken;
 }
 
 h1,
@@ -41,12 +53,15 @@ p {
 }
 
 a {
-	color: var(--color-theme-1);
+	color: var(--dim-accent);
 	text-decoration: none;
+	font-size: 16px;
+	transition: font-size 0.3s ease;
 }
 
 a:hover {
-	text-decoration: underline;
+	text-decoration: wavy underline;
+	font-size: 20px;
 }
 
 h1 {
@@ -60,7 +75,7 @@ h2 {
 
 pre {
 	font-size: 16px;
-	font-family: var(--font-mono);
+	font-family: var(--font-code);
 	background-color: rgba(255, 255, 255, 0.45);
 	border-radius: 3px;
 	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
