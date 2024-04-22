@@ -63,7 +63,7 @@
     }
 
     .card:hover {
-        border: 2px solid var(--dim-accent);
+        border: 5px solid var(--dim-accent);
         border-radius: 10px;
         opacity: 1;
     }
