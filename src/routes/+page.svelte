@@ -59,7 +59,7 @@
 		background-size: auto;
 		background-position: center;
 		background-blend-mode: soft-light;
-        transition: opacity 0.5s ease-in-out, border 0.5s ease-in-out;
+        transition: opacity 0.1s ease-in-out, border 0.1s ease-in-out;
     }
 
     .card:hover {
