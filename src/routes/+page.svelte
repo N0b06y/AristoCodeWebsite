@@ -5,6 +5,7 @@
     import robot_img from '$lib/images/LynxKasselRobot/IMG_6507.jpg';
     import programming_img from '$lib/images/PhotoTastatur.jpg';
     import design_img from '$lib/images/RandomDesign.jpeg';
+    import greece_img from '$lib/images/Greece.jpg';
 
     let interests = ['Robotics', 'Programming', 'Design'];
     let images = [robot_img, programming_img, design_img]
@@ -58,5 +59,13 @@
 		background-size: auto;
 		background-position: center;
 		background-blend-mode: soft-light;
+        transition: opacity 0.5s ease-in-out, border 0.5s ease-in-out;
     }
+
+    .card:hover {
+        border: 2px solid var(--dim-accent);
+        border-radius: 10px;
+        opacity: 1;
+    }
+
 </style>
