@@ -2,9 +2,12 @@
     import Counter from './Counter.svelte';
     import welcome from '$lib/images/svelte-welcome.webp';
     import welcome_fallback from '$lib/images/svelte-welcome.png';
+    import robot_img from '$lib/images/LynxKasselRobot/IMG_6507.jpg';
+    import programming_img from '$lib/images/PhotoTastatur.jpg';
+    import design_img from '$lib/images/RandomDesign.jpeg';
 
     let interests = ['Robotics', 'Programming', 'Design'];
-    let images = ['src/lib/images/LynxKasselRobot/IMG_6507.jpg', 'src/lib/images/PhotoTastatur.jpg', 'src/lib/images/RandomDesign.jpeg']
+    let images = [robot_img, programming_img, design_img]
     let links = ["https://www.lynx-robotics.org", "", ""];
 </script>
 
