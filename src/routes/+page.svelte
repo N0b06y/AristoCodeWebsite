@@ -8,6 +8,7 @@
     import greece_img from '$lib/images/Greece.jpg';
 
     let interests = ['Robotics', 'Programming', 'Design'];
+    let texts = ["I am a student at the Lynx Kassel Robotics School", "I am a programmer", "I am a designer"];
     let images = [robot_img, programming_img, design_img]
     let links = ["https://www.lynx-robotics.org", "", ""];
 </script>
@@ -26,7 +27,8 @@
 {#each interests as interest, i }
     <a href="{links[i]}">
         <section class="card">
-            <h2 >{interest}</h2>
+            <h1 >{interest}</h1>
+            {texts[i]}
         </section>
     </a>
 {/each}
