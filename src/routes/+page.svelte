@@ -25,7 +25,7 @@
 
 {#each interests as interest, i }
     <a href="{links[i]}">
-        <section class="card" style="background-image: url({images[i]});">
+        <section class="card">
             <h2 >{interest}</h2>
         </section>
     </a>
@@ -53,8 +53,8 @@
         border-radius: 10px;
         padding: 10px;
         margin: 10px;
-        color: var(--dim-base-100);
-        background: var(--dim-base-content);
+        color: var(--base-100);
+        background: var(--base-content);
         opacity: 0.6;
 		background-size: auto;
 		background-position: center;
@@ -63,7 +63,7 @@
     }
 
     .card:hover {
-        border: 5px solid var(--dim-accent);
+        border: 5px solid var(--accent);
         border-radius: 10px;
         opacity: 1;
     }

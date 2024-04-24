@@ -28,6 +28,21 @@
 	--dim-warning: #efd057;
 	--dim-error: #ffae9b;
 
+	--primary: var(--dim-primary);
+	--secondary: var(--dim-secondary);
+	--accent: var(--dim-accent);
+	--neutral: var(--dim-neutral);
+	--neutral-content: var(--dim-neutral-content);
+	--base-100: var(--dim-base-100);
+	--base-200: var(--dim-base-200);
+	--base-300: var(--dim-base-300);
+	--base-content: var(--dim-base-content);
+	--info: var(--dim-info);
+	--success: var(--dim-success);
+	--warning: var(--dim-warning);
+	--error: var(--dim-error);
+
+
 	font-family: var(--font-body);
 	color: var(--color-text);
 }
@@ -37,9 +52,8 @@ body {
 	background-attachment: scroll;
 	background-position: center;
 	background-size: cover;
-	background-image: url('../lib/images/Greece.jpg');
-	background-blend-mode: darken;
-	background-color: rgba(0, 0, 0, 0.9);
+	/*background-blend-mode: darken;*/
+	background-color: var(--base-100);
 	font-family: "Roboto", monospace;
 }
 
@@ -54,7 +68,7 @@ p {
 }
 
 a {
-	color: var(--dim-accent);
+	color: var(--accent);
 	text-decoration: none;
 	font-size: 16px;
 	transition: font-size 0.3s ease;
