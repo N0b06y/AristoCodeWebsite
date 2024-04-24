@@ -52,8 +52,9 @@ body {
 	background-attachment: scroll;
 	background-position: center;
 	background-size: cover;
-	/*background-blend-mode: darken;*/
-	background-color: var(--base-100);
+	background-image: url('src/lib/images/greece.jpg');
+	background-blend-mode: darken;
+	/*background-color: var(--base-100);*/
 	font-family: "Roboto", monospace;
 }
 
