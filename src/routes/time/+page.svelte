@@ -13,51 +13,63 @@
     import {scale} from 'svelte/transition';
     import {draw} from 'svelte/transition';
 
-    let interests = ['Me Now', 'Robotics', 'Programming', 'Design'];
-    let texts = [
-        /* SCHOOL */
-        "I'm currently in a german high-school and going to make my Abitur in summer 2023.\n" +
-        "I spend most of my time programming in robotics, app development, web development and plugin development.",
-        /* ROBOTICS */
-        "Since 2022 I work with three colleagues in the Bodenseeluchse (Lynx Robotics) Team for the robocup 2v2" +
-        "Lightweight League. \nWe got last year the second place on the german open in Kassel and the fifth place as well " +
-        "as the \"outstanding design award\" and the \"best poster and presentation award\" on the World Cup 2023 in " +
-        "Bordeaux.\n This year (23/24) we got the first place at the german open in Kassel and are going to participate " +
-        "in the world championship in Eindhoven.\n (For more information double-click)",
-        /* PROGRAMMING */
-        "I started programming with Python in the SFZ Friedrichshafen. \nIn the Corona-Lockdown I made a online Java " +
-        "course after which I went to our schools robotics club and started writing abstract code for tactics " +
-        "and calculations. \nBeside robotics I have little experience in Android Kotlin (Jetpack Compose), and Plugin " +
-        "Development for XPlane. \n",
-        /* DESIGN */
-        "I'm sometimes designing in Fusion, but not a great enthusiast. I got some humorous designs on my Printables account."];
-    let images = [robot_img, programming_img, design_img]
-    let links = ["", "https://www.lynx-robotics.org", "", "https://www.printables.com/de/@MatthesNeuman_747832"];
+    let _time_text =
+        "Im Moment ist es vermutlich das Sinnvollste den Julianischen Kalender als solches zu übernehmen.<br><br>" +
+        "    Zeit sollte jedoch für ihre Lesbarkeit und Einschätzbarkeit im Dezimalsystem absteigend angegeben werden. <br><br>" +
+        "    Rückwärtsläufigkeit erhöht die Produktivität.<br><br>" +
+        "    Umstellungen von Winter- und Sommerzeit sind nicht berücksichtigungswürdig, wobei ich empfehle sich an die Umwelt anzupassen.<br><br>" +
+        "    <br>" +
+        "    YYYY'MMDDT <br>" +
+        "    2023'0311'3.0 <br> " +
+        "    Gängig: 11.03.2023, 07:12Uhr<br>";
 
-    let show_extra = 0;
+    let time_text = "Im Moment ist es vermutlich das Sinnvollste den Julianischen Kalender als solches zu übernehmen.<br><br>" +
+        "Zeit sollte jedoch für ihre Lesbarkeit und Einschätzbarkeit im Dezimalsystem absteigend angegeben werden. Rückwärtsläufigkeit erhöht die Produktivität.<br><br>" +
+        "Umstellungen von Winter- und Sommerzeit sind nicht berücksichtigungswürdig, wobei ich empfehle sich an die Umwelt anzupassen.<br><br>" +
+        "YYYY'MMDDT<br><br>" +
+        "2023'0311'3.0<br><br>" +
+        "Gängig: 11.03.2023, 07:12Uhr<br><br>";
 
-    function handle_db_click(i) {
-        window.location.href = links[i];
-    }
+    let show_extra = true;
+
+    let time = new Date()
+    let seconds;
+    let clock = '';
+
+    setInterval(() => {
+        time = new Date();
+    }, 1000);
+
+    $: seconds = time.getHours() * 3600 + time.getMinutes() * 60 + time.getSeconds();
+    $: clock = (10 - ((seconds / 8640) % 100)).toFixed(5);
 </script>
 
 <svelte:head>
     <title>Zeitformatierung</title>
     <meta name="description" content="Zeitformatierung"/>
 </svelte:head>
-<section class="card">
-    Im Moment ist es vermutlich das Sinnvollste den Julianischen Kalender als solches zu übernehmen.<br><br>
-    Zeit sollte jedoch für ihre Lesbarkeit und Einschätzbarkeit im Dezimalsystem absteigend angegeben werden. <br><br>
-    Rückwärtsläufigkeit erhöht die Produktivität.<br><br>
-    Umstellungen von Winter- und Sommerzeit sind nicht berücksichtigungswürdig, wobei ich empfehle sich an die Umwelt anzupassen.<br><br>
-    <br>
-    YYYY'MMDDT<br>
-    2023'0311'3.0<br>
 
-    Gängig: 11.03.2023, 07:12Uhr<br>
-</section>
+{#if show_extra}
+    <section class="card" role="button" tabindex="0"
+             on:click={()=>{show_extra=!show_extra}}
+             on:keydown={()=>{}}
+             transition:slide
+    >
+        {@html time_text}
+    </section>
+{:else }
+    <section class="fill_card" role="button" tabindex="0"
+             on:click={()=>{show_extra=!show_extra}}
+             on:keydown={()=>{}}
+             transition:slide
+    >
+        <h1>
+            {@html clock}
+        </h1>
+    </section>
+{/if}
 
-    <style>
+<style>
     section {
         display: compact;
         justify-content: center;
@@ -72,6 +84,38 @@
     h2 {
         font-weight: bold;
         font-size: 1.5em;
+    }
+
+    .fill_card {
+
+        width: 60%;
+        height: 60%;
+
+        border-radius: 15px;
+        border: 2px solid rgb(255, 255, 255, 0.4);
+        /*border: 2px solid rgb(0, 0, 0, 0.8);*/
+        padding: 10px;
+        margin: 10px;
+        color: var(--base-100);
+        background: var(--base-content);
+        opacity: 0.8;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: soft-light;
+        transition: opacity 0.2s ease-in-out 0.2s, border 0.2s ease-in-out;
+
+        justify-content: center;
+        display: flex;
+        position: absolute;
+        align-self: center;
+        text-align: center;
+        top: auto;
+        left: auto;
+        /*z-index: 1000;*/
+        font-weight: bold;
+        font-size: 5em;
+        font-style: normal;
+        font-family: "Roboto", monospace;
     }
 
     .card {
