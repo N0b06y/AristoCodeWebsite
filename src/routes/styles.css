@@ -52,9 +52,9 @@ body {
 	background-attachment: scroll;
 	background-position: center;
 	background-size: cover;
-	background-image: url('src/lib/images/greece.jpg');
+	/*background-image: url('https://github.com/N0b06y/AristoCodeWebsite/blob/4d43762eb285cfe3a40e3476645bb1d1e6391f8c/src/lib/images/Greece.jpg');*/
 	background-blend-mode: darken;
-	/*background-color: var(--base-100);*/
+	background-color: var(--base-100);
 	font-family: "Roboto", monospace;
 }
 
